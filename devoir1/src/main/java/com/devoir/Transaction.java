@@ -10,10 +10,10 @@ public class Transaction {
     private final Date timestamp;
     private final String reference;
     private final Set<Compte> comptes;
-    public Transaction(TransactionType type, Set<Compte> comptes){
-        this.type = type;
+    public Transaction(Set<Compte> comptes){
         this.reference = UUID.randomUUID().toString();
         this.timestamp = new Date();
         this.comptes = comptes;
+        
     }
 }
