@@ -2,6 +2,7 @@ package com.devoir;
 import java.util.Date;
 import lombok.Getter;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 public class Transaction {
@@ -9,4 +10,10 @@ public class Transaction {
     private final Date timestamp;
     private final String reference;
     private final Set<Compte> comptes;
+    public Transaction(TransactionType type, Set<Compte> comptes){
+        this.type = type;
+        this.reference = UUID.randomUUID().toString();
+        this.timestamp = new Date();
+        this.comptes = comptes;
+    }
 }

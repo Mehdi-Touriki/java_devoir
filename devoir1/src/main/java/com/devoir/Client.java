@@ -9,4 +9,8 @@ import java.util.Set;
 public class Client {
     private String numClient, nom, prenom, phone, email;
     private Set<Compte> comptes;
+    public void ajoutClient(Compte compte){
+        compte.setClient(this);
+        this.getComptes().add(compte);
+    }
 }
