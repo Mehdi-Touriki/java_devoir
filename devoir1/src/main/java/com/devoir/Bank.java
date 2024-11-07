@@ -1,27 +1,26 @@
 package com.devoir;
-import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Set;
+
 @Getter
 @Setter
-
 public class Bank {
     private String id, pays;
     private Set<Compte> comptes;
-    public Bank(String id, String pays){
+
+    public Bank() {}
+
+    public Bank(String id, String pays) {
         this.id = id;
         this.pays = pays;
     }
-    public Compte rechercheCompte(Compte compte){
-        for (Compte c : comptes) {
-            if (c==compte)return compte;
-        }
-        return null;
-    }
-    public Client rechercheClient(Client client){
-        for (Compte compte : comptes){
-            if (compte.getClient() == client)return client;
-        }
-        return null;
+
+    @JsonManagedReference
+    public Set<Compte> getComptes() {
+        return comptes;
     }
 }
